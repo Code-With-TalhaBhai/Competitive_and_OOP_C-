@@ -1,0 +1,1 @@
+{"name":"Local: step08_5_TopMNC","url":"/home/talha/Code_Apps/C++_Learning/step08_5_TopMNC.cpp","tests":[{"id":1671479945582,"input":"1\n5 12\n8 2 3 7 5","output":"Case #1: 1 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/talha/Code_Apps/C++_Learning/step08_5_TopMNC.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: kickstart_8_4_arraychallenges","url":"/home/talha/Code_Apps/C++_Learning/kickstart_8_4_arraychallenges.cpp","tests":[{"id":1671472188374,"input":"1\n8\n1 2 0 7 2 0 2 2","output":"Case #1: 2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/talha/Code_Apps/C++_Learning/kickstart_8_4_arraychallenges.cpp","group":"local","local":true}
