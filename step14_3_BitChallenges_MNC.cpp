@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+#include <math.h>
 #include <climits>
 
 
@@ -133,9 +134,76 @@ void solve2(){
     cout << "First unique number is: " << newxor << endl;
 
     cout << "Second unique number is: " << (newxor ^ xorsum) << endl;
-
 }
 
+
+// Find the only non-repeating element in an array where every other element repeats thrice
+void solve3(){
+    int n = 7;
+    int arr[n] = {3,3,5,5,3,5,9};
+
+    int z = 32; //Size of int as we're gonna work with integer array;
+
+    // 1st method
+    // int res_arr[z];
+    // for (int i = 0; i < z; i++)
+    // {
+    //     res_arr[i] = 0;
+    // }
+
+    // int mod,count;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     count = 0;
+    //     // decimal to binary
+    //     mod = arr[i];
+    //     while(1){
+    //         mod /= 2;
+    //         count++;
+    //         if(mod == 0){
+    //         break;
+    //         }
+    //     }
+
+    //     for (int j = 0; j < count; j++)
+    //     {
+    //         int bit = getBit(arr[i],j);
+    //         res_arr[j] += bit;
+    //     }
+    // }
+
+    // int power,unique = 0;
+    // for (int i = 0; i < z; i++)
+    // {
+    //     if(res_arr[i] != 0){
+    //         power = pow(2,i);
+    //         unique += power * (res_arr[i]%3);
+    //     }
+    // }
+    
+    // 2nd method
+    int unique = 0;
+    int sum;
+    for (int i = 0; i < z; i++)
+    {
+        sum = 0;
+        for (int j = 0; j < n; j++)
+        {
+            if(getBit(arr[j],i)){
+                sum++;
+            }
+        }
+
+        if(sum%3 != 0){
+            unique = (unique | (1<<i)); //(Set Bit)
+        }
+        
+    }
+    
+
+
+    cout << "The unique number among thrice is: " << unique << endl;
+}
 
 
 int main(){
@@ -145,9 +213,8 @@ int t;
     {
         // cout << "Case #" << i << ": " << solve1() << endl;
         cout << "Case #" << i << ": ";
-        solve2();
-        // cout << endl << solve2() << endl;
-        // solve3();
+        // solve2();
+        solve3();
     }
     return 0;
 }

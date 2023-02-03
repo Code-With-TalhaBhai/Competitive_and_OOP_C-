@@ -216,6 +216,7 @@ int solve4(){
 
     return -1;
 }
+    
 
 
 int main(){
@@ -226,7 +227,7 @@ int main(){
     for (int i = 1; i <= t; i++)
     {
         cout << "Case #" << i << ": ";
-        solve1();
+        // solve1();
         // cout << "Case #" << i << ": " << solve2() << endl;
         // cout << "Case #" << i << ": " << solve3() << endl;
         // cout << "Case #" << i << ": " << solve4() << endl;

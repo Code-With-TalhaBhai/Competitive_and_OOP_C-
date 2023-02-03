@@ -24,6 +24,8 @@ int main(){
     string w = "ily";
 
     q.append(w);
+    // q.append("s");
+    q.append(1,'s');
     cout << q << endl;
 
 
@@ -87,6 +89,7 @@ int main(){
 
     // SUBSTR() function to get substr of string;
     string g3 = "Good AfterNoon";
+    cout << g3.substr(1) << endl; // Starting after 1 element to the rest
     cout << g3.substr(5,5) << endl; // substr(index,no. of elements)
     cout << g3.substr(5,g3.length()-5) << endl; // substr(index,no. of elements)
     cout << endl;
