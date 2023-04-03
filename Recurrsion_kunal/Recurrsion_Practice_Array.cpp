@@ -81,6 +81,8 @@ int main(){
 
     cout << endl;
 
+
+    // buble sort
     sort(arr,0,1,n);
 
     for (int i = 0; i < n; i++)
