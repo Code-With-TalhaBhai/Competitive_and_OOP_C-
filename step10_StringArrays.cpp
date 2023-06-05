@@ -78,8 +78,6 @@ int main(){
         cout << sentence[a];
         a++;
     }
-    
-
 
     return 0;
 }

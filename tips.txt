@@ -1,0 +1,13 @@
+Use auto to omit data types of a variable
+
+auto a = 'a';
+auto t = true;
+auto x = 1;
+auto y = 2.9;
+
+
+int numbers[] = {1,23,324,23,23,423,423}
+
+for (auto n: numbers){
+    cout << n << endl;
+}

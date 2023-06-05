@@ -1,0 +1,1 @@
+{"name":"Local: step08_3_3_Insertion_Sort","url":"/home/talha/Code_Apps/C++_Learning/step08_3_3_Insertion_Sort.cpp","tests":[{"id":1684676391320,"input":"7\n678 6756 459 8 545 87 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/talha/Code_Apps/C++_Learning/step08_3_3_Insertion_Sort.cpp","group":"local","local":true}

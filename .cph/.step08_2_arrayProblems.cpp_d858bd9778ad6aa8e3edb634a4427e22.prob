@@ -1,0 +1,1 @@
+{"name":"Local: step08_2_arrayProblems","url":"/home/talha/Code_Apps/C++_Learning/step08_2_arrayProblems.cpp","tests":[{"id":1684838981243,"input":"1","output":"1 2 3 0 0 0\n2 5 7\n1 4 7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/talha/Code_Apps/C++_Learning/step08_2_arrayProblems.cpp","group":"local","local":true}
