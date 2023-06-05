@@ -80,6 +80,8 @@ int main(){
     int n = 11;
     int arr[n] = {23,23,5,3,12,53,62,1,53,32,6};
 
+
+    // Quick Sort is preferred in linkedList over Merge sort
     quick_sort(arr,0,n-1);
     print(arr,n);
 
