@@ -2,6 +2,8 @@
 // #include <cstdlib>
 using namespace std;
 
+
+
 int getBit(int a,int pos){
     return ((a&(1<<pos)) != 0);
 }
@@ -14,11 +16,12 @@ int clearBit(int a,int pos){
     return (a & (~(1<<pos)));
 }
 
-int updateBit(int a,int pos,int value){
-    int mask = (a & (~(1<<pos)));
-    return (mask | (value<<pos));
+int updateBit(int a,int pos){
+    int mask = (a & (~(1<<pos))); // clearing the bit
+    return (mask | (1<<pos)); // updating the bit
 }
 
+// 100 | 010 == 110 == 6
 
 
 int main(){
@@ -29,7 +32,7 @@ int main(){
     cout << getBit(a,pos) << endl;
     cout << setBit(a,pos) << endl;
     cout << clearBit(a,pos) << endl;
-    cout << updateBit(a,pos,rand()%2) << endl; // rand() function gives number between 0 and 2
+    cout << updateBit(a,pos) << endl; // rand() function gives number between 0 and 2
 
     return 0;
 }

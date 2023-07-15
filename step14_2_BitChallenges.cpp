@@ -25,8 +25,10 @@ int solve2(){
 // Write a program to generate all possible values of a subset   S = {a,b,c}
 void solve3(){
 
-    int n = 5;
-    char arr[n] = {'a','b','c','d','e'};
+    // int n = 5;
+    // char arr[n] = {'a','b','c','d','e'};
+    int n = 3;
+    char arr[n] = {'a','b','c'};
 
     // For SubArray
     // for (int i = 0; i < n; i++)
@@ -41,6 +43,7 @@ void solve3(){
     //      }        
     // }
 
+    // cout << endl;
 
 
     // For Subset
@@ -69,8 +72,8 @@ int main(){
         cout << "Case #" << i << ": ";
         // solve1();
         // cout << "Case #" << i << ": " << solve2() << endl;
-        // cout << endl << solve2() << endl;
-        solve3();
+        cout << endl << solve2() << endl;
+        // solve3();
     }
 
     return 0;

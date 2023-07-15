@@ -65,19 +65,21 @@ int raised_to_power(int num,int power){
 
 }
 
-int raised_to_power_conventional(int num,int power,int ans){
 
-    cout << "num --> " << num << " power -->" << power << endl;
+// More time complexity
+int raised_to_power_conventional(int num,int power,int ans){
+    // cout << "num --> " << num << " power -->" << power << endl;
     if(power == 0){
         return 0;
     }
 
     if(power == 1){
-        cout << "power 1 running" << endl;
+        // cout << "power 1 running" << endl;
         return ans;
     }
 
-    return raised_to_power_conventional(num,--power,ans*num);
+    return raised_to_power_conventional(num,--power,ans*num);    
+
 }
 
 // void bubble_sort(int arr[],int pointer,int iter,int n){

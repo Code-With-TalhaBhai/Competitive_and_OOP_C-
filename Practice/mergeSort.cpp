@@ -38,3 +38,52 @@ int main(){
     solve1();
 
 }
+
+
+
+// (0,5)
+// (0,2)
+// (0,1)
+// (0,0) backfire
+
+// (1,1) backfire
+
+// (0,1) passed
+
+// (2,2) backfire
+
+// (0,2) passed
+
+// (3,5)
+// (3,4)
+// (3,3) backfire
+
+// (4,4) backfire
+// (3,4)
+
+// (5,5) backfire
+// (3,5) passed
+
+// (0,5) passed
+
+
+// (6,10) 
+// (6,8)
+// (6,7)
+// (6,6) backfire
+
+// (7,7) backfire
+
+// (6,7) passed
+
+// (8,8) backfire
+
+// (6,8) passed
+
+// (9,10) 
+// (9,9) backfire
+// (10,10) // backfire
+
+// (6,10) passed
+
+// (0,10) passed

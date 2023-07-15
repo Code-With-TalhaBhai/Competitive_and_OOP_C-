@@ -12,6 +12,8 @@ void print(int arr[],int n){
 
 void merge(int arr[],int s,int e){
 
+    // cout << "(" << s << " , " << e << ")" << endl;
+
     int mid = (s+e)/2;
     int len1 = mid-s+1;
     int len2 = e-mid;
@@ -35,6 +37,7 @@ void merge(int arr[],int s,int e){
     int i , j;
     i = j = 0;
     mainIndex = s;
+    // We cannot use OR(||) operator as i or j has limited elements whom should we compare with
     while (i < len1 && j < len2)
     {
         if(first_arr[i] < second_arr[j]){
@@ -118,16 +121,17 @@ int inversion_merge(int arr[],int start,int end){
 
 
 void mergeSort(int arr[],int s,int e){
-    // cout << "(" << s << " , " << e << ")" << endl;
-    if(s >= e){
-        return ;
-    }
-
+    cout << "(" << s << " , " << e << ")" << endl;
+    if(s >= e){ 
+        return ; 
+    }   
+ 
     int mid = (s+e)/2;
     mergeSort(arr,s,mid); 
-    // cout << "Passing middle" << endl;
-    mergeSort(arr,mid+1,e);
-    cout << "(" << s << " , " << e << ")" << endl;
+    cout << "Pass mid: ";
+
+    mergeSort(arr,mid+1,e); 
+    cout << "Passed: (" << s << " , " << e << ") "  << endl;
 
     merge(arr,s,e);
 }
@@ -154,14 +158,14 @@ int main(){
     int arr[n] = {234,253,2,54,523,526,234,46346,74,342213123,232};
     // int n = 6;
     // int arr[n] = {234,423,525,353,43,5};
+    // int n = 11;
+    // int arr[n] = {234,52,4,346,45,65,68,2,6,7,48};
     mergeSort(arr,0,n-1);
-    // print(arr,n);
+    print(arr,n);
 
     // Count the number of inversion(how many values to be placed in need to sort the array) through merge sort
     // cout << "Inversion count: " << inversion_count(arr,0,n-1) << endl;
     // print(arr,n);
-
-    
 
     return 0;
 }

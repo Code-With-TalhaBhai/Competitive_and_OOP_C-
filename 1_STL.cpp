@@ -87,5 +87,7 @@ int main(){
     }
     cout << endl;
 
+    cout << &v2;
+
 
 }
