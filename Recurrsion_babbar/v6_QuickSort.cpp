@@ -52,42 +52,38 @@ int partition(int arr[],int s,int e){
 }
 
 
-// Just for practice repition
-// int partition2(int arr[],int s,int e){
-//     int pivot = arr[s];
-//     int count = 0;
+// Other way by me
+// int partition2(int arr[],int start,int end){
+//     int count = start;
+//     int realpivot = arr[start];
 
-//     for (int i = s+1; i <= e; i++)
+//     for (int i = start+1; i <= end; i++)
 //     {
-//         if(arr[i] <= pivot){
+//         if(realpivot>=arr[i]){
 //             count++;
 //         }
 //     }
 
-//     int pivotIndex = s+count;
-//     swap(arr[s],arr[pivotIndex]);
+//     swap(arr[start],arr[count]);
 
-//     int i,j;
-//     i = s;
-//     j = e;
+//     int i = start;
+//     int j = end;
 
-//     while (i<pivotIndex  && j>pivotIndex)
-//     {
-//         while(arr[i]<=pivot){
+//     while(i<j){
+//         if(arr[i]<=realpivot){
 //             i++;
 //         }
-
-//         while(arr[j]>pivot){
+//         if(arr[j]>realpivot){
 //             j--;
 //         }
 
-//         if(i<pivotIndex && j>pivotIndex){
-//             swap(arr[i++],arr[j--]);
+//         if(arr[i]>realpivot && arr[j]<realpivot){
+//             swap(arr[i],arr[j]);
 //         }
 
 //     }
-//     return pivotIndex;
-    
+
+//     return count;
 // }
 
 
