@@ -59,7 +59,6 @@ void merge(int arr[],int s,int e){
         arr[mainIndex++] = second_arr[j++];
     }
 
-
     delete[] first_arr;
     delete[] second_arr;
 }
@@ -121,17 +120,17 @@ int inversion_merge(int arr[],int start,int end){
 
 
 void mergeSort(int arr[],int s,int e){
-    cout << "(" << s << " , " << e << ")" << endl;
+    // cout << "(" << s << " , " << e << ")" << endl;
     if(s >= e){ 
         return ; 
     }   
  
     int mid = (s+e)/2;
     mergeSort(arr,s,mid); 
-    cout << "Pass mid: ";
+    // cout << "Pass mid: ";
 
     mergeSort(arr,mid+1,e); 
-    cout << "Passed: (" << s << " , " << e << ") "  << endl;
+    // cout << "Passed: (" << s << " , " << e << ") "  << endl;
 
     merge(arr,s,e);
 }

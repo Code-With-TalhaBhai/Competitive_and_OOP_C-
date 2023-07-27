@@ -110,7 +110,7 @@ int main(){
 
 
     // With-Constructor
-    Female F1('F',"Sumaila",43,23,123,"Phd Doct.");
+    Female F1('F',"Shumaila",43,23,123,"Phd Doct.");
     F1.getAttributes();
 
 
