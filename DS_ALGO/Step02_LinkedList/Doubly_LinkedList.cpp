@@ -13,6 +13,19 @@ class Node {
         this->prev = NULL;
         this->next = NULL;
     }
+
+
+    // ~Node(){
+
+    //     int val = this->data;
+    //     if(next != NULL){
+    //         delete next;
+    //         next = NULL;
+    //     }
+
+    //     cout << "Memory free for node with data" << endl;
+    // }
+
 };
 
 void print(Node* &head){
@@ -33,8 +46,6 @@ void insertAtHead(Node* &head,Node* &tail,int data){
         return ;
     }
 
-
-
     temp->next = head;
     head->prev = temp;
     head = temp;
@@ -53,9 +64,9 @@ void insert_at_tail(Node* &tail,int data){
     tail = temp;
 }
 
-void insert_at_middle(Node* &head,int pos,int data){
+void insert_at_middle(Node* &head,Node* &tail,int pos,int data){
     if(pos <= 1){
-        insertAtHead(head,data);
+        insertAtHead(head,tail,data);
         return ;
     }
 
@@ -69,14 +80,52 @@ void insert_at_middle(Node* &head,int pos,int data){
         count++;
     };
 
+    if(temp->next == NULL){
+        insert_at_tail(tail,data);
+        return ;
+    }
+
     NodeToInsert->prev = temp;
     NodeToInsert->next = temp->next;
     temp->next->prev = NodeToInsert; // Additional for Doubly Linked List
     temp->next = NodeToInsert;
-
 }
 
+void DeleteNode(Node* &head,Node* &tail,int pos){
+    Node *temp = head;
+    if(pos == 1){
+        head->next->prev = NULL;
+        head = head->next;
+        return;
+    };
+    Node* prev_temp = head;
+    int count = 1;
+    while (count<pos)
+    {
+        prev_temp = temp;
+        temp = temp->next;
+        count++;
+    }
 
+    // cout << "address: " << temp->next << endl;
+    // cout << "data: " << temp->data << endl;
+    prev_temp->next = temp->next;
+    delete temp;
+
+    // cout << "address: " << temp->next << endl;
+    // cout << "data: " << temp->data << endl;
+
+    if(temp->next == NULL){
+        tail = prev_temp;
+        delete temp;
+        return ;
+    }
+
+    temp->next->prev = prev_temp;
+    delete temp;
+
+
+}
 
 
 int main(){
@@ -87,16 +136,27 @@ int main(){
     Node *tail = NULL;
     print(head);
     
-    insertAtHead(head,tail,1);
+    insertAtHead(head,tail,11);
     print(head);
 
 
-    // insert_at_tail(tail,33);
-    // print(head);
+    insert_at_tail(tail,33);
+    print(head);
 
 
-    // insert_at_middle(head,2,22);
-    // print(head);
+    insert_at_middle(head,tail,2,22);
+    print(head);
+
+    // Insert at FIRST from middle
+    insert_at_middle(head,tail,1,1);
+
+    // Inserting at last from middle
+    insert_at_middle(head,tail,5,44);
+    print(head);
+
+    DeleteNode(head,tail,3);
+    print(head);
+
  
     cout << "Head is at--> " << head->data << " and tail is at--> " << tail->data << endl;
     // cout << "Head is at--> " << head->data << endl;
