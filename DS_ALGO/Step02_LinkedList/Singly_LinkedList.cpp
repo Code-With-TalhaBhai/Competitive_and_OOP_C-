@@ -11,7 +11,7 @@ class Node {
         this->next = NULL;
     };
 
-
+    // This destructor does not call automatically because we use "new" keyword for creating object
     ~Node(){
         int value = this->data;
 

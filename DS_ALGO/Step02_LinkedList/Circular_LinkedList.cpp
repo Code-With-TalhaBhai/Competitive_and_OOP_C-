@@ -47,6 +47,7 @@ void print(Node* tail){
     // }
 
     // Easy Method with do-while looop
+    // Using do-while, so it at-least runs one time, maybe Single Node available, and pointing to itself
     do{
         cout << tail->data << " ";
         tail = tail->next;
@@ -87,7 +88,7 @@ void deleteNode(Node* &tail,int element){
     if(tail == NULL){
         cout << "LinkedList is empty" << endl; 
     }
-    else{
+    else{    
         Node* prev = tail;
         Node* curr = prev->next;
 
@@ -150,6 +151,8 @@ int main(){
     // When deleting single node tail this not work
     cout << "Tail is at : " << tail->data << endl;
     cout << "tail address is " << tail->next << endl;
+
+    delete tail;
 
     return 0;
 }
