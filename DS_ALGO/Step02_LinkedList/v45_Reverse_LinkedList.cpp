@@ -33,14 +33,18 @@ void print(Node* &head){
     cout << endl;
 }
 
-void reverseList(Node* &head){
-    // Node* prev = head;
-    // Node* curr = prev->next;
+Node* reverseList(Node* &head){
+// void reverseList(Node* &head){
+   
+   // For empty or single Node
+   if(head == NULL || head->next == NULL){
+    return head;
+   }
 
     Node* prev = NULL;
     Node* curr = head;
-    Node* forward = curr->next;
-    // cout << curr->data << endl;
+    Node* forward = NULL;
+
     while (curr != NULL)
     {
         // print(head);
@@ -48,33 +52,28 @@ void reverseList(Node* &head){
        curr->next = prev;
        prev = curr;
        curr = forward;
-       head = prev;
+    //    head = prev;
+    }
+    return prev;
+}
+
+Node* reverse(Node* prev,Node* &head,Node* forward){
+    Node* curr = head;
+    if(curr == NULL){
+        return prev;
     }
 
-    // while (curr != NULL)
-    // {
-    //     head = curr;
-    //     head->next = curr;
-    //     // prev = curr;
-    //     curr->next = curr;
-    // }
-    
+    forward = curr->next;
+    curr->next = prev;
+    prev = curr;
+    curr = forward;
 
-    // while(curr != NULL){
-    //     prev = curr;
-    //     curr = curr->next;
-    //     curr->next = prev;
-    // }
+    return reverse(prev,curr,forward);
+}
 
-   
-   
 
-    // while(prev != NULL){
-    //     prev->next = curr;
-    // }
-
-    // head = prev;
-
+Node* recurrsionReverse(Node* &head){
+    return reverse(NULL,head,NULL);
 }
 
 
@@ -89,9 +88,10 @@ int main(){
     insert_At_Tail(tail,40);
     print(head);
 
-    reverseList(head);
-    print(head);
-
+    // Node* reverseLinkedList = reverseList(head);
+    // via recurrsion
+    Node* reverseLinkedList = recurrsionReverse(head);
+    print(reverseLinkedList);
 
     return 0;
 }

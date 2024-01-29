@@ -28,7 +28,7 @@ int main(){
 
 
     // Copy Constructor -> Copy value of p1 to p2
-    // Without Self-Copy Constructor, Default Copy Constructor runs and create Shallow Copy of Constructor
+    // Without Custom-Self Copy-Constructor, Default Copy Constructor runs and create Shallow Copy of Constructor
 
     Player p2(p1);
     p2.print();
@@ -39,7 +39,7 @@ int main(){
     cout << endl << endl;
     p1.print();
 
-    // Self Copy Constructor creates Deep Copy
+    // Custom-Self Copy Constructor creates Deep Copy
     // Player p3(p2);
     // p3.alive = 0;
     // p3.print();
