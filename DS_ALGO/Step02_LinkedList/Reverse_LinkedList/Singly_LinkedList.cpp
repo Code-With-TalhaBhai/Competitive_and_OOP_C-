@@ -77,6 +77,19 @@ Node* recurrsionReverse(Node* &head){
 }
 
 
+Node* reverseListSingle(Node* &head){
+    if(head == NULL || head->next == NULL){
+        return head;
+    }
+
+    Node* temp_head = reverseListSingle(head->next);
+
+    head->next->next = head;
+    head->next = NULL;
+    return temp_head;
+}
+
+
 int main(){
 
     Node* node = new Node(10);
@@ -88,10 +101,18 @@ int main(){
     insert_At_Tail(tail,40);
     print(head);
 
+    // cout << "With Iteration" << endl;
     // Node* reverseLinkedList = reverseList(head);
-    // via recurrsion
-    Node* reverseLinkedList = recurrsionReverse(head);
-    print(reverseLinkedList);
+
+    // cout << "Via Recurrsion" << endl;
+    // Node* reverseLinkedList = recurrsionReverse(head);
+    // print(reverseLinkedList);
+
+
+    cout << "Via Recurrsion single parameter" << endl;
+    Node* SingleNodeRecurrsion = reverseListSingle(head);
+    print(SingleNodeRecurrsion);
+
 
     return 0;
 }
