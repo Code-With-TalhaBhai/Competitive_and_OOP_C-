@@ -1,4 +1,5 @@
 #include<iostream>
+#include<map>
 using namespace std;
 
 class Node {
@@ -12,17 +13,17 @@ class Node {
     };
 
     // This destructor does not call automatically because we use "new" keyword for creating object
-    ~Node(){
-        int value = this->data;
+    // ~Node(){
+    //     int value = this->data;
 
-        if(this->next != NULL){
-            delete next;
-            this->next = NULL;
-        }
+    //     if(this->next != NULL){
+    //         delete next;
+    //         this->next = NULL;
+    //     }
 
 
-        cout << "Memory has freed from " << value << endl;
-    }
+    //     cout << "Memory has freed from " << value << endl;
+    // }
 
 };
 
@@ -107,90 +108,49 @@ void deleteNode(Node* &head,int pos){
     }
 }
 
-int getListLength(Node* head){
-    int cnt = 0;
-    while(head != NULL){
-        head = head->next;
-        cnt++;
+void remove_duplicates_sorted(Node* head){
+    if(head==NULL || head->next==NULL){
+        return;
     }
-    return cnt;
-}
 
-Node* getMiddleNode(Node* head){
     Node* temp = head;
-    int mid_len = (getListLength(head)/2)+1;
-    
-    while(mid_len>1){
-        temp = temp->next;
-        mid_len--;
-    }
-    return temp;
-}
-
-Node* optimizedMiddleNode(Node* head){
-    if (head == NULL || head->next == NULL){
-        return head;
-    }
-
-    Node* temp_slow = head;
-    Node* temp_pro = head->next;
-
-    while(temp_pro != NULL){
-        temp_pro = temp_pro->next;
-        temp_slow = temp_slow->next;
-
-        if(temp_pro == NULL){
-            break;
+    while(temp!=NULL){
+        if(temp->next != NULL && temp->next->data==temp->data){
+            Node* node_to_delete = temp->next;
+            temp->next = temp->next->next;
+            delete node_to_delete;
         }
-        temp_pro = temp_pro->next;
+        else{
+            temp=temp->next;
+        }
     }
-
-    return temp_slow;
 }
 
 
 int main(){
 
-    Node* n1 = new Node(22);
-
-    // cout << n1->data << endl;
-    // cout << n1->next << endl;
-
+    Node* n1 = new Node(10);
     Node* head = n1;
     Node* tail = n1;
+    Node* spec = NULL;
+
+   for(int i=20; i<90; i+=10){
+        insert_At_Tail(tail,i);
+        if(i == 30 || i == 50 || i == 70){
+            for (int j=0;j<2;j++){
+                insert_At_Tail(tail,i);
+            }
+        }
+    }
+
+    cout << "Given LinkedList" << endl;
     print(head);
 
-    // cout << head << " Address: " << &head;
-
-    insertAtHead(head,11);
+    cout << "After removing duplicates from sorted LinkedList" << endl;
+    remove_duplicates_sorted(head);
     print(head);
 
-    insert_At_Tail(tail,44);
-    print(head);
-
-    insert_At_Tail(tail,55);
-    print(head);
-
-    insert_AT_Middle(head,3,33);
-    print(head);
-
-    // Insert AT Start through middle
-    insert_AT_Middle(head,0,1);
-    print(head);
-
-    // Insert AT END through middle
-    insert_AT_Middle(head,7,66,tail);
-    print(head);
-
-    // deleteNode(head,3);
-    // print(head);
-
-    cout << "The length of the list is: " << getListLength(head) << endl;
-    cout << "The middle of the LinkedList is: " << getMiddleNode(head)->data << endl;
-    cout << "The Optimized code for middle of the LinkedList is: " << optimizedMiddleNode(head)->data << endl;
-
-
-    cout << endl << endl;
     cout << "Head->" << head->data << " Tail-> " << tail->data << endl;
+
     return 0;
 }
