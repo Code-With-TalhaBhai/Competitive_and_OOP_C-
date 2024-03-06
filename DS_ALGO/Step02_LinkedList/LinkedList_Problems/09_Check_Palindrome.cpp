@@ -214,7 +214,6 @@ Node* getMiddleNode1(Node* head){
         temp=temp->next;
         len--;
     }
-    // cout << "it works till here" << endl;
     return temp;
 }
 

@@ -5,10 +5,12 @@ class Node {
         public:
             int data;
             Node *next;
+            Node* random;
 
     Node(int data){
         this->data = data;
         this->next = NULL;
+        this->random = NULL;
     };
 
     // This destructor does not call automatically because we use "new" keyword for creating object
@@ -46,10 +48,13 @@ void print(Node* &head){
 }
 
 
-void insert_At_Tail(Node* &tail,int d){
+void insert_At_Tail(Node* &head,Node* &tail,int d){
    
     Node* temp = new Node(d);
-    if(tail!=NULL){ // for empty linkedlist
+    if(tail==NULL){ // for empty linkedlist
+        head = temp;
+    }
+    else{
         tail->next = temp;
     }
     tail = temp;
@@ -77,7 +82,7 @@ void insert_AT_Middle(Node* &head,int pos,int data,Node* tail=NULL){ // Optional
     };
 
     if(temp->next == NULL){
-        insert_At_Tail(tail,data);
+        insert_At_Tail(head,tail,data);
         return ;
     }
 
@@ -107,51 +112,70 @@ void deleteNode(Node* &head,int pos){
     }
 }
 
+void printLinkedListWithRandom(Node* head){
+    Node* temp = head;
+
+    while (temp != NULL)
+    {
+        if(temp->random!=NULL){
+            cout << temp->random->data << " ";
+        }
+        temp = temp->next;
+    }  
+    cout << endl;
+}
+
+Node* cloneLinkedListWithRandom(Node* head){
+    if(head == NULL || head->next == NULL){
+        return head;
+    }
+
+    Node* original_head = head;
+    Node* clone_tail = NULL;
+    Node* clone_head = NULL;  
+
+    while(original_head!=NULL){
+        insert_At_Tail(clone_head,clone_tail,original_head->data);
+        original_head=original_head->next;
+    }
+
+    return clone_head;
+}
 
 
 int main(){
 
-    Node* n1 = new Node(22);
+   Node* head = new Node(1);
+    Node* second = new Node(2);
+    Node* third = new Node(3);
+    Node* fourth = new Node(4);
+    Node* fifth = new Node(5);
+    Node* tail = fifth;
 
-    // cout << n1->data << endl;
-    // cout << n1->next << endl;
+    head->next = second;
+    head->random = third;
 
-    Node* head = n1;
-    Node* tail = n1;
+    second->next = third;
+    second->random = fifth;
+
+    third->next = fourth;
+    third->random = head;
+
+    fourth->next = fifth;
+    fourth->random = second;
+
+    fifth->random = fourth;
+
+    cout << "Original linked list with next pointers: " << endl;
     print(head);
 
-    // cout << head << " Address: " << &head;
+    cout << "Original linked list with random pointers:" << endl;
+    printLinkedListWithRandom(head);
 
-    insertAtHead(head,11);
-
-    print(head);
-
-    insert_At_Tail(tail,44);
-
-    print(head);
-
-    insert_At_Tail(tail,55);
-
-    print(head);
-
-    insert_AT_Middle(head,3,33);
-    print(head);
-
-    // Insert AT Start through middle
-    insert_AT_Middle(head,0,1);
-    print(head);
-
-    // Insert AT END through middle
-    insert_AT_Middle(head,5,66,tail);
-    print(head);
-
-
-    // deleteNode(head,3);
-    // print(head);
-
-
-
-    cout << "Head->" << head->data << " Tail-> " << tail->data << endl;
+    Node* clonedHead = cloneLinkedListWithRandom(head);
+    cout << endl << "Cloned linked list with random pointers:" << endl;
+    print(clonedHead);
+    printLinkedListWithRandom(clonedHead);
 
     return 0;
 }

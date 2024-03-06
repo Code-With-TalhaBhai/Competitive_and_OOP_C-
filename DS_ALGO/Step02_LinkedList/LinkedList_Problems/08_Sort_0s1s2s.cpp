@@ -227,7 +227,7 @@ Node* solve_sort(Node* first,Node* second){
 }
 
 
-Node* merge_sorted_linkedlists(Node* head1,Node* head2){
+Node* merge_sorted_linkedlists1(Node* head1,Node* head2){
     if(head1 == NULL){
         return head2;
     }
@@ -247,6 +247,47 @@ Node* merge_sorted_linkedlists(Node* head1,Node* head2){
 }
 
 
+Node* merge_sorted_linkedlists2(Node* left,Node* right){
+    if(left == NULL)
+        return right;
+    
+    if(right == NULL)
+        return left;
+    
+    Node* ans = new Node(-1);
+    Node* temp = ans;
+    
+    //merge 2 sorted Linked List
+    while(left != NULL && right != NULL) {
+        if(left -> data < right -> data ) {
+            temp -> next = left;
+            temp = left;
+            left = left -> next;
+        }
+        else
+        {
+            temp -> next = right;
+            temp = right;
+            right = right -> next;
+        }
+    }
+    
+    while(left != NULL) {
+        temp -> next = left;
+        temp = left;
+        left = left -> next;
+    }
+    
+    while(right != NULL) {
+        temp -> next = right;
+        temp = right;
+        right = right -> next;
+    }
+    
+    ans = ans -> next;
+    return ans;
+}
+
 int main(){
 
     // 1 -> 0 -> 2 -> 1 -> 2
@@ -259,6 +300,7 @@ int main(){
     insert_At_Tail(tail,2);
     insert_At_Tail(tail,1);
     insert_At_Tail(tail,1);
+    insert_At_Tail(tail,0);
 
     cout << "Given LinkedList: ";
     print(head);
@@ -275,14 +317,14 @@ int main(){
     cout << endl << endl;
 
 
-    Node* n1 = new Node(7);
+    Node* n1 = new Node(5);
     Node* head1 = n1;
     insertAtHead(head1,3);
     insertAtHead(head1,1);
     cout << "First Sorted LL: ";
     print(head1);
 
-    Node* n2 = new Node(5);
+    Node* n2 = new Node(7);
     Node* head2 = n2;
     insertAtHead(head2,4);
     insertAtHead(head2,2);
@@ -291,7 +333,8 @@ int main(){
 
 
 
-    Node* mergeLL = merge_sorted_linkedlists(head1,head2);
+    // Node* mergeLL = merge_sorted_linkedlists1(head1,head2);
+    Node* mergeLL = merge_sorted_linkedlists2(head1,head2);
     print(mergeLL);
 
     cout << "Head->" << head->data << " Tail-> " << tail->data << endl;
