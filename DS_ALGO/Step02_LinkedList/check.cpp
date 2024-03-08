@@ -14,17 +14,13 @@ class Node {
     // This destructor does not call automatically because we use "new" keyword for creating object
     ~Node(){
         int value = this->data;
-        cout << "Memory has freed from " << value << endl;
-
-        if(this->next != NULL){
-            // Recurrsion calls to destructor because of `delete`
+        cout << "deleted node is: " << value << endl;
+        if(this->next!=NULL){
             delete next;
             this->next = NULL;
+            // cout << "running" << endl;
         }
-
-
     }
-
 };
 
 void insertAtHead(Node* &head,int d){
@@ -149,10 +145,16 @@ int main(){
 
     // deleteNode(head,3);
     // print(head);
-
-
-
+    cout << "Before Deleting" << endl;
     cout << "Head->" << head->data << " Tail-> " << tail->data << endl;
+
+
+    cout << "After Deleting" << endl;
+    delete head->next->next;
+    cout << endl << endl;
+    cout << "Head->" << head->data << " Tail-> " << tail->data << endl;
+
+
 
     return 0;
 }
