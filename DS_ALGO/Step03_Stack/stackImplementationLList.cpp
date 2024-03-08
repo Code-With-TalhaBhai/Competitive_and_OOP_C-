@@ -10,6 +10,19 @@ class Stack{
         this->data = element;
         this->next = NULL;
     }
+
+    void push(){
+
+    }
+
+    void pop(){
+
+    }
+
+    int peak(){
+        
+    }
+
 };
 
 
