@@ -2,6 +2,7 @@
 using namespace std;
 
 class Stack{
+    public:
     int data;
     Stack* next;
 
@@ -9,12 +10,13 @@ class Stack{
         this->data = element;
         this->next = NULL;
     }
-}
+};
 
 
 int main(){
 
-    Stack S;
+    Stack* S = new Stack(45);
+    cout << S->data << endl;
 
     return 0;
 }
