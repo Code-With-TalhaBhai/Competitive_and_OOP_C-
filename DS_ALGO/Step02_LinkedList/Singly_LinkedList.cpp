@@ -103,6 +103,7 @@ void deleteNode(Node* &head,int pos){
 
         prev->next = curr->next;
         curr->next = NULL;
+        // delete: This is an operator in C++ used to destroy objects created with the new operator and deallocate memory. It also calls the object's destructor if it has one. 
         delete curr;
 
     }
