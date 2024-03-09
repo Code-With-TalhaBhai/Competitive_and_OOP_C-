@@ -34,26 +34,31 @@ public:
 
     // Pop from stack 1 and return popped element.
     int pop1() {
-        top1--;
+        if(top1>=0){
+            top1--;
+        }
+        else{
+            cout << "Already empty" << endl;
+        }
     }
 
     // Pop from stack 2 and return popped element.
     int pop2() {
-        top2--;
+            top2++;
     }
 
     void peek(){
         if(arr[top1]==-4201019){
-            cout << "Array1 is empty" << endl;
+            cout << "Top1 is empty" << endl;
         }
         else{
             cout << "top1 is at: " << arr[this->top1] << endl;   
         }
         if(arr[top2]==-4201019){
-            cout << "Array1 is empty" << endl;
+            cout << "Top2 is empty" << endl;
         }
         else{
-            cout << "top1 is at: " << arr[this->top2] << endl;   
+            cout << "top2 is at: " << arr[this->top2] << endl;   
         }
     }
 };
@@ -73,9 +78,15 @@ int main(){
 
     S.pop1();
     S.pop1();
+    S.pop1();
+    // S.pop1();
+
 
     S.pop2();
-    S.pop2();
+    // S.pop2();
+    // S.pop2();
+    // S.pop2();
+
 
     S.peek();    
 
