@@ -22,29 +22,50 @@ public:
     
     // Push in stack 1.
     void push1(int num) {
-        top1++;
-        arr[top1] = num;
+        // Atleast empty space available for push
+        if(top2-top1>2){
+            top1++;
+            arr[top1] = num;
+        }
+        else{
+            cout << "Stack overflow for top 1" << endl;
+        }
     }
 
     // Push in stack 2.
     void push2(int num) {
-        top2--;
-        arr[top2] = num;
+        if(top2-top1>1){
+            top2--;
+            arr[top2] = num;
+        }
+        else{
+            cout << "Stack overflow for top 2" << endl;
+        }
     }
 
     // Pop from stack 1 and return popped element.
     int pop1() {
         if(top1>=0){
+            int popped = arr[top1];
             top1--;
+            return popped;
         }
         else{
             cout << "Already empty" << endl;
         }
+        return -1;
     }
 
     // Pop from stack 2 and return popped element.
     int pop2() {
-            top2++;
+            if(top2<size){
+                int popped = arr[top2];
+                top2++;
+                return popped;
+            }
+            else{
+                cout << "Top 2 is empty" << endl;
+            }
     }
 
     void peek(){
@@ -76,13 +97,18 @@ int main(){
     S.push2(3);
     S.push2(4);
 
-    S.pop1();
-    S.pop1();
-    S.pop1();
+
+    S.push1(1);
+    S.push2(2);
+    // S.pop1();
+    // S.pop1();
+    // S.pop1();
     // S.pop1();
 
 
-    S.pop2();
+    // S.pop2();
+    // S.pop2();
+    // S.pop2();
     // S.pop2();
     // S.pop2();
     // S.pop2();
