@@ -3,7 +3,7 @@
 #include<string>
 using namespace std;
 
-string reverse_stack(stack<int>& s,string str){
+string reverse_string(stack<int>& s,string str){
     for(int i=0; i<str.length(); i++){
         char ch = str[i];
         s.push(ch);
@@ -22,10 +22,10 @@ int main(){
     stack<int> S;
     string str = "Talha";
     cout << "Real String is: " << str << endl;
-    cout << "Reverse String is: " << reverse_stack(S,str) << endl;
+    cout << "Reverse String is: " << reverse_string(S,str) << endl;
 
     str = "rotator";
     cout << "Real String is: " << str << endl;
-    cout << "Reverse String is: " << reverse_stack(S,str) << endl;
+    cout << "Reverse String is: " << reverse_string(S,str) << endl;
     return 0;
 }

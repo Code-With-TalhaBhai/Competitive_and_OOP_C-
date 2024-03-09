@@ -3,9 +3,23 @@
 using namespace std;
 
 
-void Insert_At_Bottom(stack<int> S,int data){
+stack<int> Insert_At_Bottom(stack<int>& S,int data){
     if(S.empty()){
-        
+        S.push(data);
+        return S;
+    }
+
+    int val = S.top();
+    S.pop();
+    Insert_At_Bottom(S,data);
+    S.push(val);
+    return S;
+}
+
+void printStack(stack<int> S){
+    while(!S.empty()){
+        cout << "Element is: " << S.top() << endl;
+        S.pop();
     }
 }
 
@@ -23,7 +37,7 @@ int main(){
     Insert_At_Bottom(S,7);
     Insert_At_Bottom(S,8);
 
-    printStack(S);
+    printStack(Insert_At_Bottom(S,9));
 
     return 0;
 }
