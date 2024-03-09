@@ -2,16 +2,29 @@
 #include<stack>
 using namespace std;
 
-stack<int> reverseStack(stack<int> &stack) {
+void Insert_At_Bottom(stack<int>& S,int data){
+    if(S.empty()){
+        S.push(data);
+        return ;
+    }
+
+    int val = S.top();
+    S.pop();
+    Insert_At_Bottom(S,data);
+    S.push(val);
+}
+
+
+// stack<int> reverseStack(stack<int> &stack) {
+void reverseStack(stack<int> &stack) {
     if(stack.empty()){
-        return stack;
+        return ;
     }
 
     int val = stack.top();
     stack.pop();
     reverseStack(stack);
-    stack.push(val);
-    return stack;
+    Insert_At_Bottom(stack,val);
 }
 
 
@@ -35,7 +48,9 @@ int main(){
     cout << "Before Reverse" << endl;
     printStack(S);
     cout << "After Reverse Recurrsion" << endl;
-    printStack(reverseStack(S));
+    reverseStack(S);
+    printStack(S);
+    // printStack(reverseStack(S));
 
     return 0;
 }
