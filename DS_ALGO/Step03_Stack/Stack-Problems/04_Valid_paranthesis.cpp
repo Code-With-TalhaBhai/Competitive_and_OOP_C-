@@ -46,10 +46,12 @@ int main(){
     string str1 = "[()]{}{[()()]()}";
     string str2 = "[[{}[]]]";
     string str3 = "[{{}(]]";
+    string str4 = "[](){}";
 
     check(valid_paranthesis(str1));
     check(valid_paranthesis(str2));
     check(valid_paranthesis(str3));
+    check(valid_paranthesis(str4));
 
     return 0;
 }

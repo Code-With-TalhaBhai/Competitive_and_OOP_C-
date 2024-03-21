@@ -3,7 +3,6 @@
 using namespace std;
 
 
-
 void printStack(stack<int> S){
     while(!S.empty()){
         cout << "Element is: " << S.top() << endl;
@@ -12,16 +11,17 @@ void printStack(stack<int> S){
 }
 
 
+
+
+
 int main(){
 
     stack<int> S;
-    S.push(11);
-    S.push(6);
-    S.push(7);
-    S.push(54);
-    S.push(8);
-
-    
+    S.push(3);
+    S.push(-7);
+    S.push(9);
+    S.push(-2);
+    S.push(5);
 
     return 0;
 }
