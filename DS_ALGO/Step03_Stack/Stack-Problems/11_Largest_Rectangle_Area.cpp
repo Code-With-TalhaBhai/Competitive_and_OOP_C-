@@ -5,7 +5,7 @@ using namespace std;
 
 int LargestRectangularArea1(vector<int> heights){
     int size = heights.size();
-    int area,max_area = -1;
+    int area,max_area = 0;
     for (int i = 0; i < size-1; i++)
     {
         int width = 1;
@@ -46,25 +46,21 @@ vector<int> prev_smaller(vector<int> arr){
     int j;
     for (int i = 0; i < size; i++)
     {
-        j = i-1;
+        j = i-1; // {5,8,9,10,1,5,6} // {2,4}
         int curr = arr[i];
         while(S.top()>curr){
             S.pop();
             j--;
         }
 
-        if(curr==1){
-            arr[i] = -1;
+        if(j == 0){
+            j = -1;
         }
-        else{
-            arr[i] = j;
-        }
+        arr[i] = j;
         S.push(curr);
 
     }
-
     print_vect(arr);
-
 return arr;
 }
 
@@ -80,14 +76,13 @@ vector<int> next_smaller(vector<int> arr){
             S.pop();
             j++;
         }
-        if(curr==1){
-            arr[i] = size;
-        }else{
-        arr[i] = j;
+        if(j == size-1){
+            j = size;
         }
+
+        arr[i] = j;
         S.push(curr);
     }
-
     print_vect(arr);
     return arr;
 }
@@ -97,9 +92,6 @@ int LargestRectangularArea2(vector<int> heights){
     
     int max_area = INT16_MIN;
     int area,width,length;
-    // prev_smaller(heights);
-    // next_smaller(heights);
-    // cout << max_area << endl;
     for (int i = 0; i < heights.size(); i++)
     {
         int p_smaller = prev_smaller(heights)[i];
@@ -121,14 +113,19 @@ int main(){
 
     // vector<int> heights = {2,1,5,6,2,3};
     // vector<int> heights = {6,2,5,4,1,5,6};
-    vector<int> heights = {5,8,9,10,1,5,6};
+    // vector<int> heights = {5,8,9,10,1,5,6};
     // vector<int> heights = {3, 5, 1, 7, 5, 9};
+    vector<int> heights = {2,4};
+    // vector<int> heights = {0};
 
     // Without Optimization (O(n*2))
     cout << "The largest rectangular area is: " << LargestRectangularArea1(heights) << endl;
 
     // With Stack(Optimized(O(n)))
     cout << "The largest rectangular area with stack is: " << LargestRectangularArea2(heights) << endl;
+
+    prev_smaller(heights);
+    next_smaller(heights);
 
     return 0;
 }
