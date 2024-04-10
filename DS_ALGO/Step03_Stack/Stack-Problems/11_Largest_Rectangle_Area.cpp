@@ -114,6 +114,7 @@ int main(){
     // vector<int> heights = {6,2,5,4,1,5,6};
     // vector<int> heights = {5,8,9,10,1,5,6};
     vector<int> heights = {3, 5, 1, 7, 5, 9};
+    // vector<int> heights = {2,0,2};
     // vector<int> heights = {2,4};
     // vector<int> heights = {4,2};
     // vector<int> heights = {0};
