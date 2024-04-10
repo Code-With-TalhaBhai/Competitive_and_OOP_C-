@@ -16,7 +16,7 @@ class Stack{
 
         if(data<mini){
             mini = data;
-            int data_to_push = data - mini;
+            int data_to_push = 2*data - mini;
             st.push(data_to_push);
         }
         else{
@@ -37,7 +37,7 @@ class Stack{
         }        
         else{
             int prevMini = mini;
-            mini = prevMini - curr;// 2 - 5 = -3 || -3 - 2 = -5 
+            mini = 2*prevMini - curr;// 2 - 5 = -3 || -3 - 2 = -5 
             return prevMini;
         }
         return curr;
@@ -67,7 +67,7 @@ int main(){
     S->push(14);
     S->push(3);
     S->push(44);
-    S->push(1);
+    S->push(177);
 
     cout << "Before Pop" << endl;
     cout << "The stack top is: " << S->top() << endl;
@@ -77,10 +77,17 @@ int main(){
     // cout << "Popped value: " << S->pop() << endl;
     S->pop();
     S->pop();
+    S->pop();
+    S->pop();
+    S->pop();
+    S->pop();
+
     cout << "After Pop" << endl;
     cout << "The stack top is: " << S->top() << endl;
     cout << "The stack minimum value is: " << S->min() << endl;
 
+    // int a = -542;
+    // cout << a << endl;
 
     return 0;
 }
