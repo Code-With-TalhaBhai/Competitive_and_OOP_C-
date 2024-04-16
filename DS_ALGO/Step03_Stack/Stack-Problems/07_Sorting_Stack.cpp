@@ -12,7 +12,6 @@ void printStack(stack<int> S){
 
 
 void insert_at_sort(stack<int> &S,int num){
-
     if(S.empty()){
         S.push(num);
         return ;
@@ -23,15 +22,12 @@ void insert_at_sort(stack<int> &S,int num){
         S.push(num);
         return ;
     }
-
     // It can also be written as :
     // if(S.empty() || S.top()<=num){
     //     S.push(num);
     //     return ;
     // }
-
     S.pop();
-
     insert_at_sort(S,num);
     S.push(top);
 }
