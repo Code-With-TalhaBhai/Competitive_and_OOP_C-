@@ -52,10 +52,10 @@ int main(){
     string str3 = "{{{{";
     string str4 = "{}}{}}";
 
-    cout << "The minimum cost is: " << minimum_bracket_reversal(str1) << endl;
-    cout << "The minimum cost is: " << minimum_bracket_reversal(str2) << endl;
-    cout << "The minimum cost is: " << minimum_bracket_reversal(str3) << endl;
-    cout << "The minimum cost is: " << minimum_bracket_reversal(str4) << endl;
+    cout << "The minimum cost is: " << findMinimumCost(str1) << endl;
+    cout << "The minimum cost is: " << findMinimumCost(str2) << endl;
+    cout << "The minimum cost is: " << findMinimumCost(str3) << endl;
+    cout << "The minimum cost is: " << findMinimumCost(str4) << endl;
 
     return 0;
 }
